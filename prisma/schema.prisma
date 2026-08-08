@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+// 1. جدول رسائل صفحة التواصل (Contact Messages)
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  subject   String
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+}
+
+
+model JobApplication {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  position  String
+  portfolio String
+  message   String?
+  createdAt DateTime @default(now())
+}
