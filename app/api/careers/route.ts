@@ -1,17 +1,19 @@
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import nodemailer from "nodemailer";
+
 export const dynamic = "force-dynamic";
 
-const prisma = new PrismaClient();
-
 export async function POST(request: Request) {
+  // تعريف الداتا بيز جوه الدالة عشان تشتغل وقت التقديم الفعلي فقط
+  const prisma = new PrismaClient();
+
   try {
     const body = await request.json();
     const { name, email, phone, position, portfolio, message } = body;
 
-    // 1. حفظ البيانات في قاعدة البيانات
-    const application = await prisma.jobApplication.create({
+    // حفظ البيانات
+    await prisma.jobApplication.create({
       data: {
         name,
         email,
@@ -22,7 +24,7 @@ export async function POST(request: Request) {
       },
     });
 
-    // 2. تجهيز البوسطجي اللي هيبعت الإيميل
+    // إرسال الإيميل
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -31,60 +33,28 @@ export async function POST(request: Request) {
       },
     });
 
-    // 3. شكل ومحتوى الإيميل اللي هيوصلك
-    const mailOptions = {
+    await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // هيبعتلك على نفس إيميلك
+      to: process.env.EMAIL_USER,
       subject: `🚀 طلب توظيف جديد: ${position} - Start Online Agency`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #eaeaea; border-radius: 10px; overflow: hidden;">
-          <div style="background-color: #1A1A1A; padding: 20px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0;">Start Online Agency</h1>
-          </div>
-          <div style="padding: 30px; background-color: #ffffff;">
-            <h2 style="color: #333;">مرحباً </h2>
-            <p style="color: #555; font-size: 16px;">هناك طلب توظيف جديد تم تقديمه عبر الموقع، وهذه هي التفاصيل:</p>
-            
-            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-              <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">الاسم:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${name}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">الوظيفة:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #E01E2E; font-weight: bold;">${position}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">الإيميل:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${email}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">الموبايل:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${phone}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">لينك الأعمال:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee;"><a href="${portfolio}" style="color: #E01E2E;">اضغط هنا للمشاهدة</a></td>
-              </tr>
-            </table>
-            
-            ${message ? `
-            <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #E01E2E;">
-              <strong>رسالة إضافية من المتقدم:</strong><br>
-              <p style="color: #555; margin-top: 5px;">${message}</p>
-            </div>
-            ` : ''}
-          </div>
+        <div dir="rtl" style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; border-radius: 10px;">
+          <h2 style="color: #E01E2E;">طلب توظيف جديد من ${name}</h2>
+          <p><strong>الوظيفة:</strong> ${position}</p>
+          <p><strong>رقم الموبايل:</strong> ${phone}</p>
+          <p><strong>الإيميل:</strong> ${email}</p>
+          <p><strong>معرض الأعمال:</strong> <a href="${portfolio}">اضغط هنا للمشاهدة</a></p>
+          <p><strong>رسالة إضافية:</strong> ${message || "لا توجد رسالة"}</p>
         </div>
       `,
-    };
-
-    // إرسال الإيميل
-    await transporter.sendMail(mailOptions);
+    });
 
     return NextResponse.json({ message: "Application saved and email sent!" }, { status: 201 });
   } catch (error) {
     console.error("Error submitting application:", error);
     return NextResponse.json({ error: "Failed to submit application" }, { status: 500 });
+  } finally {
+    // خطوة احترافية لإنهاء الاتصال بعد كل طلب
+    await prisma.$disconnect();
   }
 }
