@@ -1,9 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-export const dynamic = "force-dynamic";
 
 export default function AdminDashboard() {
-  // الباسوورد بتاعك (تقدر تغيره لأي حاجة براحتك)
   const ADMIN_PASSWORD = "StartOnline2026";
   
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -11,7 +9,6 @@ export default function AdminDashboard() {
   const [applications, setApplications] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // دالة تسجيل الدخول
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (passwordInput === ADMIN_PASSWORD) {
@@ -22,11 +19,11 @@ export default function AdminDashboard() {
     }
   };
 
-  // دالة جلب البيانات من الـ API
   const fetchApplications = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch("/api/admin", { cache: "no-store" });
+      // تم تصحيح المسار هنا
+      const res = await fetch("/api/careers/admin", { cache: "no-store" });
       const data = await res.json();
       setApplications(data);
     } catch (error) {
@@ -35,6 +32,8 @@ export default function AdminDashboard() {
       setIsLoading(false);
     }
   };
+
+// ... (باقي كود الـ HTML زي ما هو بالظبط بدون أي تغيير)
 
   // شاشة تسجيل الدخول (لو لسه مدخلش الباسوورد)
   if (!isAuthenticated) {
