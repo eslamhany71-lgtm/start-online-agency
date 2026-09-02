@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 export const dynamic = "force-dynamic";
 
-// السطر ده هو السر! بيجبر السيرفر يجيب البيانات لايف كل مرة وميعتمدش على الذاكرة
-export const dynamic = "force-dynamic";
+
 
 const prisma = new PrismaClient();
 
