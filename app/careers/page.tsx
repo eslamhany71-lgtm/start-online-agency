@@ -75,6 +75,7 @@ export default function Careers() {
       setIsLoading(false);
     }
   };
+  
 
   const jobs = [
     {
