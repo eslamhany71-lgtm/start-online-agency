@@ -3,232 +3,214 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white flex flex-col items-center justify-start overflow-hidden pt-24 pb-20">
+    <main className="min-h-screen bg-[#FCFBFA] text-[#111111] flex flex-col items-center justify-start overflow-hidden pt-20">
       
-      {/* 1. Hero Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12 py-12">
-        {/* Left Text */}
-        <div className="flex-1 text-center lg:text-left z-10">
-          <h1 className="text-5xl lg:text-[64px] font-black text-[#1A1A1A] leading-[1.1] mb-6 tracking-tight">
-            We Build, Market & <br />
-            Scale <span className="text-[#E01E2E]">Digital Businesses.</span>
+      {/* HERO SECTION */}
+      <section className="w-full max-w-[1280px] mx-auto px-6 md:px-8 lg:px-20 min-h-[680px] flex flex-col lg:flex-row items-center justify-between gap-6 py-20 lg:py-24">
+        {/* Left Content (52%) */}
+        <div className="w-full lg:w-[52%] z-10 flex flex-col text-center lg:text-left">
+          <p className="text-[11px] font-bold text-[#666A73] uppercase tracking-[0.12em] mb-6">
+            Technology • Marketing • Growth
+          </p>
+          <h1 className="text-[48px] md:text-[64px] lg:text-[72px] font-extrabold leading-[1.05] tracking-tight mb-8">
+            We Build, Market & Scale <span className="text-[#E01E2E]">Digital Businesses.</span>
           </h1>
-          <p className="text-lg text-gray-500 mb-8 max-w-xl font-medium leading-relaxed">
-            Technology, marketing, content, websites, ecommerce, custom systems. All built—everything modern businesses need to grow, compete, and lead in a digital world.
+          <p className="text-[16px] md:text-[18px] text-[#666A73] leading-[1.6] mb-10 max-w-[580px] mx-auto lg:mx-0">
+            Technology, marketing, content, websites, ecommerce, custom systems, and AI. Everything modern businesses need to grow, compete, and lead in a digital world.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link 
               href="/companies" 
-              className="bg-[#E01E2E] text-white px-8 py-3.5 rounded-full font-bold hover:bg-red-700 transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-red-500/20"
+              className="bg-[#E01E2E] text-white h-[52px] px-8 rounded-[12px] font-bold flex items-center justify-center hover:-translate-y-[2px] hover:shadow-lg hover:shadow-red-500/20 transition-all duration-200"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-              </svg>
-              Explore Our Companies →
+              Explore Our Companies
             </Link>
             <Link 
               href="/contact" 
-              className="bg-white text-[#1A1A1A] border border-gray-200 px-8 py-3.5 rounded-full font-bold hover:border-gray-900 transition-all text-center flex items-center justify-center gap-2"
+              className="bg-transparent border border-[rgba(17,17,17,0.08)] text-[#111111] h-[52px] px-8 rounded-[12px] font-bold flex items-center justify-center hover:-translate-y-[2px] hover:shadow-sm transition-all duration-200"
             >
-              📅 Schedule Consultation
+              Schedule Consultation
             </Link>
           </div>
         </div>
-        
-        {/* Right Graphic with Old Image Logo */}
-        <div className="flex-1 flex justify-center items-center relative w-full mt-10 lg:mt-0 min-h-[450px]">
-          <div className="absolute w-[350px] h-[350px] bg-red-50 rounded-full blur-3xl opacity-80 -z-10"></div>
+
+        {/* Right Content (48%) - 3D Visual */}
+        <div className="w-full lg:w-[48%] relative flex justify-center items-center mt-16 lg:mt-0 min-h-[500px]">
+          {/* Orbital Lines & Glow */}
+          <div className="absolute inset-0 flex items-center justify-center -z-10">
+            <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-[#E01E2E]/5 rounded-full blur-3xl absolute"></div>
+            <div className="w-[280px] h-[280px] md:w-[380px] md:h-[380px] rounded-full border border-[rgba(17,17,17,0.03)] absolute animate-[spin_20s_linear_infinite]"></div>
+            <div className="w-[340px] h-[340px] md:w-[460px] md:h-[460px] rounded-full border border-[rgba(17,17,17,0.02)] border-dashed absolute animate-[spin_30s_linear_infinite_reverse]"></div>
+          </div>
+
+          <div className="relative w-48 h-56 md:w-56 md:h-64 z-10 animate-[bounce_6s_infinite]">
+            <Image src="/images/528071b5-c4d1-486b-8357-2a74c897870d-removebg-preview.png" alt="Start Online Agency Logo" fill className="object-contain drop-shadow-2xl" priority />
+          </div>
+
+          {/* Floating Cards */}
+          <div className="absolute top-[10%] left-[5%] bg-white px-4 py-3 rounded-[16px] shadow-sm border border-[rgba(17,17,17,0.04)] flex items-center gap-2 animate-[bounce_4s_infinite]">
+            <span className="w-2 h-2 rounded-full bg-[#E01E2E]"></span>
+            <span className="text-[12px] font-bold text-[#111111]">Technology</span>
+          </div>
+          <div className="absolute top-[20%] right-[0%] bg-white px-4 py-3 rounded-[16px] shadow-sm border border-[rgba(17,17,17,0.04)] flex items-center gap-2 animate-[bounce_5s_infinite]">
+            <span className="w-2 h-2 rounded-full bg-[#E01E2E]"></span>
+            <span className="text-[12px] font-bold text-[#111111]">Marketing</span>
+          </div>
+          <div className="absolute bottom-[20%] left-[0%] bg-white px-4 py-3 rounded-[16px] shadow-sm border border-[rgba(17,17,17,0.04)] flex items-center gap-2 animate-[bounce_4.5s_infinite]">
+            <span className="w-2 h-2 rounded-full bg-[#E01E2E]"></span>
+            <span className="text-[12px] font-bold text-[#111111]">Content</span>
+          </div>
+          <div className="absolute bottom-[10%] right-[5%] bg-white px-4 py-3 rounded-[16px] shadow-sm border border-[rgba(17,17,17,0.04)] flex items-center gap-2 animate-[bounce_5.5s_infinite]">
+            <span className="w-2 h-2 rounded-full bg-[#E01E2E]"></span>
+            <span className="text-[12px] font-bold text-[#111111]">Growth</span>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION - WHAT WE DO */}
+      <section className="w-full bg-[#F7F7F6] py-[96px] lg:py-[120px]">
+        <div className="w-full max-w-[1280px] mx-auto px-6 md:px-8 lg:px-20">
+          <div className="mb-16 text-center lg:text-left">
+            <p className="text-[#E01E2E] text-[12px] font-bold uppercase tracking-[0.1em] mb-4">What We Do</p>
+            <h2 className="text-[38px] md:text-[46px] font-bold leading-tight">End-to-End Digital Solutions <br className="hidden md:block" /> for Every Stage of Growth.</h2>
+          </div>
           
-          <div className="relative flex justify-center items-center flex-col">
-            {/* Old Logo Image */}
-            <div className="relative w-56 h-64 md:w-64 md:h-72 z-10 mb-4">
-              <Image
-                src="/images/528071b5-c4d1-486b-8357-2a74c897870d-removebg-preview.png"
-                alt="Start Online Agency Logo"
-                fill
-                className="object-contain drop-shadow-2xl"
-                priority
-              />
-            </div>
-            
-            {/* Podium */}
-            <div className="absolute -bottom-2 w-56 h-8 bg-black/5 rounded-[100%] blur-md"></div>
-            <div className="absolute bottom-2 w-48 h-4 border-[3px] border-[#E01E2E]/30 rounded-[100%]"></div>
-            <div className="absolute bottom-4 w-36 h-2 border-[2px] border-[#E01E2E]/10 rounded-[100%]"></div>
-            
-            {/* Floating Cards */}
-            <div className="absolute -top-4 -left-12 bg-white p-4 rounded-xl shadow-lg border border-red-50 flex flex-col items-center text-center w-28 animate-[bounce_4s_infinite]">
-              <span className="text-[#E01E2E] mb-1"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg></span>
-              <span className="text-[10px] font-bold text-gray-900">Technology</span>
-              <span className="text-[8px] text-gray-400">Build robust solutions</span>
-            </div>
-            <div className="absolute top-8 -right-12 bg-white p-4 rounded-xl shadow-lg border border-red-50 flex flex-col items-center text-center w-28 animate-[bounce_5s_infinite]">
-              <span className="text-[#E01E2E] mb-1"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg></span>
-              <span className="text-[10px] font-bold text-gray-900">Marketing</span>
-              <span className="text-[8px] text-gray-400">Data-driven growth</span>
-            </div>
-            <div className="absolute bottom-12 -left-16 bg-white p-4 rounded-xl shadow-lg border border-red-50 flex flex-col items-center text-center w-28 animate-[bounce_4.5s_infinite]">
-              <span className="text-[#E01E2E] mb-1"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg></span>
-              <span className="text-[10px] font-bold text-gray-900">Content</span>
-              <span className="text-[8px] text-gray-400">Engaging content</span>
-            </div>
-            <div className="absolute -bottom-4 -right-16 bg-white p-4 rounded-xl shadow-lg border border-red-50 flex flex-col items-center text-center w-28 animate-[bounce_5.5s_infinite]">
-              <span className="text-[#E01E2E] mb-1"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg></span>
-              <span className="text-[10px] font-bold text-gray-900">Growth</span>
-              <span className="text-[8px] text-gray-400">Sustainable scale</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Stats Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 mt-4 mb-20 border-b border-gray-100 pb-12">
-        <div className="flex flex-wrap justify-between gap-6 items-center">
-          {[
-            { n: "10+", t: "Years of Excellence", i: "🎯" },
-            { n: "50+", t: "Enterprise Clients", i: "🏢" },
-            { n: "25+", t: "Products & Systems", i: "⚙️" },
-            { n: "100+", t: "Projects Delivered", i: "🚀" }
-          ].map((s, i) => (
-            <div key={i} className="flex items-center gap-4">
-              <span className="text-2xl text-[#E01E2E] bg-white border border-red-100 shadow-sm p-3 rounded-xl">{s.i}</span>
-              <div>
-                <h4 className="text-2xl font-black text-gray-900 leading-none">{s.n}</h4>
-                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mt-1">{s.t}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. Solutions */}
-      <section className="w-full max-w-7xl mx-auto px-4 mb-24">
-        <div className="text-center mb-12">
-          <p className="text-[#E01E2E] text-[10px] font-black uppercase tracking-widest mb-2">What We Do</p>
-          <h2 className="text-3xl md:text-4xl font-black text-[#1A1A1A]">End-to-End Digital Solutions <br /> for Every Stage of Growth.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
-          {[
-            { t: "Digital Marketing", d: "Performance marketing, SEO, social, and growth strategies that deliver measurable results.", i: "🎯" },
-            { t: "Content Production", d: "High-impact content, video, reels, podcasts, and brand storytelling that connects.", i: "🎬" },
-            { t: "Websites", d: "Modern, fast, and secure websites built for performance and great user experience.", i: "💻" },
-            { t: "Ecommerce", d: "Scalable online stores with seamless UX and conversion-focused experiences.", i: "🛒" },
-            { t: "Custom Systems", d: "Tailored software, portals, and automation systems that streamline operations.", i: "⚙️" },
-            { t: "AI Video", d: "AI-powered video production, avatars, and automation for modern storytelling.", i: "🤖" }
-          ].map((item, i) => (
-            <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:border-red-100 transition-all">
-              <div className="w-12 h-12 bg-white border border-red-50 text-[#E01E2E] rounded-full flex items-center justify-center text-xl mb-4 shadow-sm">{item.i}</div>
-              <h3 className="text-sm font-bold text-gray-900 mb-2">{item.t}</h3>
-              <p className="text-[11px] text-gray-500 font-medium leading-relaxed">{item.d}</p>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center mt-8">
-            <Link href="/services" className="text-[#E01E2E] text-xs font-bold hover:text-red-800 transition-colors flex items-center gap-1">
-                Explore All Services →
-            </Link>
-        </div>
-      </section>
-
-      {/* 4. Platforms & Systems */}
-      <section className="w-full max-w-7xl mx-auto px-4 mb-24">
-        <div className="text-center mb-12">
-          <p className="text-[#E01E2E] text-[10px] font-black uppercase tracking-widest mb-2">Our Products & Ventures</p>
-          <h2 className="text-3xl md:text-4xl font-black text-[#1A1A1A]">Platforms. Systems. Impact.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all">
-             <div className="text-[#E01E2E] mb-4"><svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg></div>
-             <h3 className="font-bold text-gray-900 mb-2">Niva Dent</h3>
-             <p className="text-[11px] text-gray-500 mb-6 leading-relaxed">Advanced ERP system and complete management solution for dental clinics. Built on a solid MySQL architecture.</p>
-             <div className="flex justify-between items-center text-[10px] font-bold mt-auto pt-4 border-t border-gray-50">
-               <span className="text-green-500 bg-green-50 px-2 py-1 rounded-md">Status: Active</span>
-               <Link href="/companies" className="text-[#E01E2E] hover:text-red-800">Explore System →</Link>
-             </div>
-          </div>
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all">
-             <div className="text-[#E01E2E] mb-4"><svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg></div>
-             <h3 className="font-bold text-gray-900 mb-2">Start Online Platform</h3>
-             <p className="text-[11px] text-gray-500 mb-6 leading-relaxed">A scalable e-commerce infrastructure designed for massive digital growth. Built with Firebase and MySQL.</p>
-             <div className="flex justify-between items-center text-[10px] font-bold mt-auto pt-4 border-t border-gray-50">
-               <span className="text-green-500 bg-green-50 px-2 py-1 rounded-md">Status: Active</span>
-               <Link href="/companies" className="text-[#E01E2E] hover:text-red-800">Explore Platform →</Link>
-             </div>
-          </div>
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all">
-             <div className="text-[#E01E2E] mb-4"><svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /></svg></div>
-             <h3 className="font-bold text-gray-900 mb-2">Engineer Pro</h3>
-             <p className="text-[11px] text-gray-500 mb-6 leading-relaxed">High-end corporate development and management solutions platform for internal engineering and workflows.</p>
-             <div className="flex justify-between items-center text-[10px] font-bold mt-auto pt-4 border-t border-gray-50">
-               <span className="text-yellow-600 bg-yellow-50 px-2 py-1 rounded-md">Status: In Development</span>
-               <Link href="/companies" className="text-gray-400 hover:text-gray-600">Coming Soon</Link>
-             </div>
-          </div>
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-all">
-             <div className="text-[#E01E2E] mb-4"><svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg></div>
-             <h3 className="font-bold text-gray-900 mb-2">Capital Mind AI</h3>
-             <p className="text-[11px] text-gray-500 mb-6 leading-relaxed">AI-driven insights for smarter business decisions. Analyze data, optimize operations, and unlock growth.</p>
-             <div className="flex justify-between items-center text-[10px] font-bold mt-auto pt-4 border-t border-gray-50">
-               <span className="text-blue-500 bg-blue-50 px-2 py-1 rounded-md">Status: Beta</span>
-               <Link href="/companies" className="text-[#E01E2E] hover:text-red-800">Explore Platform →</Link>
-             </div>
-          </div>
-        </div>
-        <div className="flex justify-center mt-8">
-            <Link href="/companies" className="text-[#E01E2E] text-xs border border-red-100 px-4 py-2 rounded-full font-bold hover:bg-red-50 transition-colors flex items-center gap-1">
-                View All Companies & Ventures →
-            </Link>
-        </div>
-      </section>
-
-      {/* 5. SOA Studio */}
-      <section className="w-full max-w-7xl mx-auto px-4 mb-24">
-        <div className="text-center mb-12">
-          <p className="text-[#E01E2E] text-[10px] font-black uppercase tracking-widest mb-2">SOA Studio</p>
-          <h2 className="text-3xl md:text-4xl font-black text-[#1A1A1A]">Stories That Build Brands.</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[
-            { t: "Reels & Short Films", d: "Scroll-stopping content for social." },
-            { t: "Podcasts", d: "Thought leadership conversations." },
-            { t: "Commercial Production", d: "High-quality commercials." },
-            { t: "AI Production", d: "AI avatars and automated video." }
-          ].map((item, i) => (
-            <div key={i} className="relative h-56 rounded-2xl overflow-hidden group cursor-pointer border border-gray-800">
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
-              <div className="absolute inset-0 bg-[#0A0A0A] group-hover:scale-105 transition-transform duration-500"></div>
-              <div className="absolute bottom-6 left-6 z-20">
-                <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center mb-3 backdrop-blur-sm">
-                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
+            {[
+              { t: "Digital Marketing", d: "Performance marketing, SEO, social, and growth strategies that deliver measurable results.", i: "M13 10V3L4 14h7v7l9-11h-7z" },
+              { t: "Content Production", d: "High-impact content, video, reels, podcasts, and brand storytelling that connects.", i: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" },
+              { t: "Websites", d: "Modern, fast, and secure websites built for performance and great user experience.", i: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+              { t: "Ecommerce", d: "Scalable online stores with seamless UX and conversion-focused experiences.", i: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" },
+              { t: "Custom Systems", d: "Tailored software, portals, and automation systems that streamline operations.", i: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" },
+              { t: "AI Video", d: "AI-powered video production, avatars, and automation for modern storytelling.", i: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" }
+            ].map((item, i) => (
+              <div key={i} className="group bg-white rounded-[20px] p-8 border border-[rgba(17,17,17,0.04)] min-h-[220px] flex flex-col justify-between hover:-translate-y-[5px] hover:shadow-[0_8px_30px_rgba(224,30,46,0.04)] hover:border-[rgba(224,30,46,0.1)] transition-all duration-300">
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#FCFBFA] border border-[rgba(17,17,17,0.04)] flex items-center justify-center mb-6 group-hover:bg-[#E01E2E]/5 transition-colors">
+                    <svg className="w-5 h-5 text-[#111111] group-hover:text-[#E01E2E] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.i} /></svg>
+                  </div>
+                  <h3 className="text-[20px] font-bold text-[#111111] mb-3">{item.t}</h3>
+                  <p className="text-[16px] text-[#666A73] leading-[1.6]">{item.d}</p>
                 </div>
-                <h4 className="text-white font-bold text-sm mb-1">{item.t}</h4>
-                <p className="text-gray-400 text-[10px]">{item.d}</p>
+                <div className="mt-6">
+                  <Link href="/services" className="text-[13px] font-bold text-[#111111] group-hover:text-[#E01E2E] flex items-center gap-2 transition-colors">
+                    Learn More <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 6. Mission */}
-      <section className="w-full max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="text-[#E01E2E] text-[10px] font-black uppercase tracking-widest mb-2">Why Start Online</p>
-          <h2 className="text-3xl md:text-4xl font-black text-[#1A1A1A]">Your Growth. Our Mission.</h2>
+      {/* SECTION - PRODUCTS & VENTURES */}
+      <section className="w-full bg-[#FCFBFA] py-[96px] lg:py-[120px]">
+        <div className="w-full max-w-[1280px] mx-auto px-6 md:px-8 lg:px-20">
+          <div className="mb-16 text-center lg:text-left">
+            <p className="text-[#E01E2E] text-[12px] font-bold uppercase tracking-[0.1em] mb-4">Our Products & Ventures</p>
+            <h2 className="text-[38px] md:text-[46px] font-bold leading-tight">Platforms. Systems. Impact.</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px]">
+            {[
+              { t: "Niva Dent", d: "Advanced ERP system and complete management solution for dental clinics.", s: "Active", sc: "text-green-600 bg-green-50" },
+              { t: "Start Online Platform", d: "A scalable e-commerce infrastructure designed for massive digital growth.", s: "Active", sc: "text-green-600 bg-green-50" },
+              { t: "Engineer Pro", d: "High-end corporate development and management solutions platform.", s: "In Development", sc: "text-amber-600 bg-amber-50" },
+              { t: "Capital Mind AI", d: "AI-driven insights for smarter business decisions and operations.", s: "Beta", sc: "text-[#E01E2E] bg-red-50" }
+            ].map((item, i) => (
+              <div key={i} className="group bg-white rounded-[20px] p-8 border border-[rgba(17,17,17,0.08)] flex flex-col hover:-translate-y-[4px] hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 rounded-[12px] bg-[#111111] flex items-center justify-center mb-6">
+                  <span className="text-white font-bold text-lg">{item.t.charAt(0)}</span>
+                </div>
+                <h3 className="text-[20px] font-bold text-[#111111] mb-3">{item.t}</h3>
+                <p className="text-[16px] text-[#666A73] leading-[1.6] mb-8 flex-1">{item.d}</p>
+                <div className="flex items-center justify-between mt-auto pt-6 border-t border-[rgba(17,17,17,0.04)]">
+                  <span className={`text-[11px] font-bold uppercase tracking-wider px-2 py-1 rounded-[6px] ${item.sc}`}>{item.s}</span>
+                  <Link href="/companies" className="text-[#111111] hover:text-[#E01E2E] transition-colors group-hover:translate-x-1 duration-300">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-4 lg:flex-nowrap">
-          {[
-            { t: "End-to-End Solutions", d: "Everything you need—from strategy to execution—under one roof.", i: "🔗" },
-            { t: "Creative Production", d: "Content and video that captures attention and drives engagement.", i: "🎨" },
-            { t: "Technology + Marketing", d: "The perfect blend of powerful technology and data-driven marketing.", i: "⚙️" },
-            { t: "Custom Systems", d: "Scalable, secure, and tailored systems designed around your business.", i: "💻" },
-            { t: "Growth Focused", d: "We build with one goal: accelerate your growth and maximize ROI.", i: "📈" }
-          ].map((item, i) => (
-            <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6 flex-1 min-w-[200px] text-center shadow-sm hover:shadow-md transition-all">
-              <div className="text-2xl mb-4 bg-gray-50 w-12 h-12 mx-auto rounded-full flex items-center justify-center">{item.i}</div>
-              <h4 className="text-xs font-bold text-gray-900 mb-2">{item.t}</h4>
-              <p className="text-[10px] text-gray-500 leading-relaxed">{item.d}</p>
-            </div>
-          ))}
+      </section>
+
+      {/* SECTION - SOA STUDIO */}
+      <section className="w-full bg-[#111111] py-[96px] lg:py-[120px]">
+        <div className="w-full max-w-[1280px] mx-auto px-6 md:px-8 lg:px-20">
+          <div className="mb-16 text-center lg:text-left">
+            <p className="text-[#E01E2E] text-[12px] font-bold uppercase tracking-[0.1em] mb-4">SOA Studio</p>
+            <h2 className="text-[38px] md:text-[46px] font-bold leading-tight text-white">Stories That Build Brands.</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px]">
+            {[
+              { t: "Reels & Short Films", d: "Scroll-stopping content for social." },
+              { t: "Podcasts", d: "Thought leadership conversations." },
+              { t: "Commercial Production", d: "High-quality commercials." },
+              { t: "AI Production", d: "AI avatars and automated video." }
+            ].map((item, i) => (
+              <div key={i} className="group relative aspect-[4/3] rounded-[20px] overflow-hidden bg-[#1A1A1A] cursor-pointer">
+                {/* Simulated Image Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2a2a2a] to-[#111111] group-hover:scale-[1.04] transition-transform duration-700 ease-out"></div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+                
+                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                  <div>
+                    <h3 className="text-white text-[18px] font-bold mb-1">{item.t}</h3>
+                    <p className="text-gray-400 text-[13px]">{item.d}</p>
+                  </div>
+                  <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:border-white/50 group-hover:translate-x-1 transition-all duration-300">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION - WHY START ONLINE */}
+      <section className="w-full bg-[#FCFBFA] py-[96px] lg:py-[120px]">
+        <div className="w-full max-w-[1280px] mx-auto px-6 md:px-8 lg:px-20 text-center">
+          <p className="text-[#E01E2E] text-[12px] font-bold uppercase tracking-[0.1em] mb-4">Why Start Online</p>
+          <h2 className="text-[38px] md:text-[46px] font-bold leading-tight mb-16">Your Growth. Our Mission.</h2>
+          
+          <div className="flex flex-wrap justify-center gap-[24px]">
+            {['End-to-End Solutions', 'Creative Production', 'Technology + Marketing', 'Custom Systems', 'Growth Focused'].map((item, i) => (
+              <div key={i} className="bg-white rounded-[16px] px-8 py-6 border border-[rgba(17,17,17,0.08)] flex-1 min-w-[200px] shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="text-[16px] font-bold text-[#111111]">{item}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="w-full bg-[#FCFBFA] pb-[120px] px-6 md:px-8 lg:px-20">
+        <div className="w-full max-w-[1280px] mx-auto bg-[#E01E2E] min-h-[220px] rounded-[24px] relative overflow-hidden flex flex-col md:flex-row items-center justify-between p-12 md:p-16 gap-8">
+          {/* Subtle Pattern */}
+          <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+          
+          <div className="relative z-10 text-center md:text-left max-w-xl">
+            <h2 className="text-[32px] md:text-[40px] font-bold text-white leading-tight mb-4">
+              Ready to Build, Market & Scale Your Business?
+            </h2>
+            <p className="text-white/90 text-[16px] md:text-[18px]">
+              Let's create something extraordinary together.
+            </p>
+          </div>
+          
+          <div className="relative z-10">
+            <Link 
+              href="/contact" 
+              className="bg-white text-[#E01E2E] h-[52px] px-8 rounded-[12px] font-bold flex items-center justify-center hover:bg-[#F7F7F6] hover:-translate-y-[2px] transition-all duration-200 shadow-xl"
+            >
+              Schedule Consultation
+            </Link>
+          </div>
         </div>
       </section>
 
