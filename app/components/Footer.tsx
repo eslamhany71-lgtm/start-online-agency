@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -22,14 +23,24 @@ export default function Footer() {
 
       <div className="bg-[#0A0A0A] pt-16 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 border-b border-gray-800 pb-12">
+          
           <div className="lg:col-span-2">
+            {/* Logo Section with Old Image */}
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <span className="text-[#E01E2E] text-4xl font-extrabold">S</span>
+              <div className="relative w-12 h-14 md:w-14 md:h-16">
+                <Image
+                  src="/images/528071b5-c4d1-486b-8357-2a74c897870d-removebg-preview.png"
+                  alt="Start Online Agency Logo"
+                  fill
+                  className="object-contain brightness-0 invert" 
+                />
+              </div>
               <div className="flex flex-col">
                 <span className="text-white font-black text-xl leading-none tracking-tight">START ONLINE</span>
                 <span className="text-gray-500 text-[10px] font-bold tracking-[0.3em] mt-1">AGENCY</span>
               </div>
             </Link>
+            
             <p className="text-gray-400 text-sm font-medium mb-6 max-w-xs leading-relaxed">
               We build, market, and scale digital businesses through innovative marketing and technology.
             </p>

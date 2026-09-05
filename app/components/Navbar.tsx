@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -21,12 +22,20 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* Logo Section */}
+          {/* Logo Section with Old Image */}
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-[#E01E2E] text-[40px] font-black italic tracking-tighter leading-none">S</span>
+            <div className="relative w-12 h-14 md:w-14 md:h-16">
+              <Image
+                src="/images/528071b5-c4d1-486b-8357-2a74c897870d-removebg-preview.png"
+                alt="Start Online Agency Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
             <div className="flex flex-col justify-center">
-              <span className="text-gray-900 font-black text-xl leading-none tracking-tight">START ONLINE</span>
-              <span className="text-gray-500 text-[9px] font-bold tracking-[0.35em] mt-1 uppercase">Agency</span>
+              <span className="text-gray-900 font-black text-lg md:text-xl leading-none tracking-tight">START ONLINE</span>
+              <span className="text-gray-500 text-[8px] md:text-[9px] font-bold tracking-[0.35em] mt-1 uppercase">Agency</span>
             </div>
           </Link>
 
@@ -44,7 +53,6 @@ export default function Navbar() {
                   >
                     {link.name}
                   </Link>
-                  {/* الخط الأحمر اللي بيظهر تحت الصفحة الحالية */}
                   {isActive && (
                     <div className="absolute -bottom-2 w-5 h-[2px] bg-[#E01E2E] rounded-full"></div>
                   )}
