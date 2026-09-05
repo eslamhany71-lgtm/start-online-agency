@@ -1,84 +1,82 @@
 "use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Our Companies", path: "/companies" },
+    { name: "Services", path: "/services" },
+    { name: "Careers", path: "/careers" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          
-          {/* جزء اللوجو */}
-          <div className="flex-shrink-0 flex items-center gap-2">
-            <Link href="/">
-              <Image
-                src="/images/528071b5-c4d1-486b-8357-2a74c897870d-removebg-preview.png"
-                alt="Start Online Logo"
-                width={45}
-                height={45}
-                className="object-contain"
-              />
-            </Link>
-            <span className="text-foreground font-extrabold text-xl tracking-tight">
-              START <span className="text-primary">ONLINE</span>
-            </span>
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-[#E01E2E] text-4xl font-extrabold">S</span>
+            <div className="flex flex-col">
+              <span className="text-gray-900 font-black text-xl leading-none tracking-tight">START ONLINE</span>
+              <span className="text-gray-500 text-[10px] font-bold tracking-[0.3em] mt-1">AGENCY</span>
+            </div>
+          </Link>
+
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.path}
+                className="text-sm font-bold text-gray-600 hover:text-[#E01E2E] transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
 
-          {/* جزء اللينكات */}
-          <div className="hidden md:flex space-x-8 items-center">
-            <Link 
-              href="/" 
-              className={`transition-colors text-sm font-semibold ${pathname === "/" ? "text-primary" : "text-foreground/70 hover:text-primary"}`}
-            >
-              Home
-            </Link>
-            <Link 
-              href="/about" 
-              className={`transition-colors text-sm font-semibold ${pathname === "/about" ? "text-primary" : "text-foreground/70 hover:text-primary"}`}
-            >
-              About Us
-            </Link>
-            <Link 
-              href="/companies" 
-              className={`transition-colors text-sm font-semibold ${pathname === "/companies" ? "text-primary" : "text-foreground/70 hover:text-primary"}`}
-            >
-              Our Companies
-            </Link>
-            <Link 
-              href="/services" 
-              className={`transition-colors text-sm font-semibold ${pathname === "/services" ? "text-primary" : "text-foreground/70 hover:text-primary"}`}
-            >
-              Services
-            </Link>
-            <Link 
-              href="/careers" 
-              className={`transition-colors text-sm font-semibold ${pathname === "/careers" ? "text-primary" : "text-foreground/70 hover:text-primary"}`}
-            >
-              Careers
-            </Link>
+          <div className="hidden md:flex">
             <Link 
               href="/contact" 
-              className={`transition-colors text-sm font-semibold ${pathname === "/contact" ? "text-primary" : "text-foreground/70 hover:text-primary"}`}
+              className="bg-[#E01E2E] text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-red-700 transition-all flex items-center gap-2"
             >
-              Contact
+              Schedule Consultation <span className="text-lg">→</span>
             </Link>
           </div>
 
-          {/* زرار حجز الاستشارة */}
-          <div className="hidden md:block">
-            <Link href="/contact">
-              <button className="bg-primary text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-red-700 active:scale-95 transition-all shadow-lg shadow-red-500/20 flex items-center gap-2">
-                Schedule Consultation <span>→</span>
-              </button>
-            </Link>
+          <div className="md:hidden flex items-center">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-900">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
-
         </div>
       </div>
+
+      {isOpen && (
+        <div className="md:hidden bg-white border-b border-gray-100 p-4">
+          <div className="flex flex-col space-y-4">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.path}
+                onClick={() => setIsOpen(false)}
+                className="text-sm font-bold text-gray-600 hover:text-[#E01E2E]"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
