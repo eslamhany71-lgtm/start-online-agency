@@ -3,8 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function Navbar() {
+export default function Navbar({ locale }: { locale: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -13,13 +14,14 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
+  // تعديل المسارات عشان تقرأ اللغة الحالية وماتكسرش الروابط
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Our Companies", path: "/companies" },
-    { name: "Services", path: "/services" },
-    { name: "Careers", path: "/careers" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", path: `/${locale}` },
+    { name: "About Us", path: `/${locale}/about` },
+    { name: "Our Companies", path: `/${locale}/companies` },
+    { name: "Services", path: `/${locale}/services` },
+    { name: "Careers", path: `/${locale}/careers` },
+    { name: "Contact", path: `/${locale}/contact` },
   ];
 
   return (
@@ -28,7 +30,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           
           {/* Logo Section */}
-          <Link href="/" className="flex items-center gap-2 relative z-[101]">
+          <Link href={`/${locale}`} className="flex items-center gap-2 relative z-[101]">
             <div className="relative w-12 h-14 md:w-14 md:h-16">
               <Image
                 src="/images/528071b5-c4d1-486b-8357-2a74c897870d-removebg-preview.png"
@@ -44,10 +46,11 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation (مخفي في الموبايل) */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => {
-              const isActive = pathname === link.path;
+              // عشان يحدد اللينك النشط صح حتى بعد إضافة اللغة
+              const isActive = pathname === link.path || pathname === `${link.path}/`;
               return (
                 <div key={link.name} className="relative flex flex-col items-center group">
                   <Link
@@ -67,18 +70,20 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* CTA Button (Desktop) */}
-          <div className="hidden md:flex">
+          {/* CTA Button (Desktop) & Language Switcher */}
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher currentLocale={locale} />
             <Link 
-              href="/contact" 
+              href={`/${locale}/contact`} 
               className="bg-[#E01E2E] text-white px-6 h-[44px] rounded-[10px] font-bold text-[13px] hover:bg-red-700 hover:-translate-y-[1px] transition-all flex items-center gap-2 shadow-sm"
             >
               Schedule Consultation
             </Link>
           </div>
 
-          {/* Mobile Menu Button (زرار القائمة في الموبايل) */}
-          <div className="md:hidden flex items-center relative z-[101]">
+          {/* Mobile Menu Button & Language Switcher */}
+          <div className="md:hidden flex items-center gap-4 relative z-[101]">
+            <LanguageSwitcher currentLocale={locale} />
             <button 
               onClick={() => setIsOpen(!isOpen)} 
               className="p-2 -mr-2 text-[#111111] focus:outline-none"
@@ -96,7 +101,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown (شكل القائمة لما تفتح في الموبايل) */}
+      {/* Mobile Menu Dropdown */}
       <div 
         className={`md:hidden absolute top-20 left-0 w-full bg-white border-b border-[rgba(17,17,17,0.08)] shadow-2xl transition-all duration-300 ease-in-out origin-top ${
           isOpen ? 'opacity-100 visible scale-y-100' : 'opacity-0 invisible scale-y-95 pointer-events-none'
@@ -104,7 +109,7 @@ export default function Navbar() {
       >
         <div className="px-4 pt-4 pb-8 flex flex-col space-y-2">
           {navLinks.map((link) => {
-            const isActive = pathname === link.path;
+            const isActive = pathname === link.path || pathname === `${link.path}/`;
             return (
               <Link 
                 key={link.name} 
@@ -121,7 +126,7 @@ export default function Navbar() {
           {/* زرار التواصل جوه الموبايل */}
           <div className="pt-6 mt-2 border-t border-[rgba(17,17,17,0.04)]">
             <Link 
-              href="/contact" 
+              href={`/${locale}/contact`} 
               className="bg-[#E01E2E] text-white w-full h-[52px] rounded-[12px] font-bold text-[15px] flex items-center justify-center shadow-lg shadow-red-500/20 active:scale-95 transition-transform"
             >
               Schedule Consultation
