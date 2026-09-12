@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"; // سحبنا الفوتر هنا
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop"; // استدعاء زرار الطلوع لفوق
 
 export const metadata: Metadata = {
   title: "Start Online Agency | Holding Company",
@@ -29,6 +30,9 @@ export default function RootLayout({
 
         {/* الفوتر دايماً تحت */}
         <Footer />
+
+        {/* زرار الطلوع لفوق اللي هيظهر في كل الصفحات */}
+        <ScrollToTop />
       </body>
     </html>
   );
