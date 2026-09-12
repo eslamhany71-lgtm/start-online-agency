@@ -2,6 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  
+  // المصفوفة دي عشان تقدر تعدل مشاريع الاستوديو بسهولة (أنت بس اللي تقدر تعدلها من هنا)
+  const studioProjects = [
+    { t: "Reels & Short Films", d: "Scroll-stopping content for social.", link: "/services" },
+    { t: "Podcasts", d: "Thought leadership conversations.", link: "/services" },
+    { t: "Commercial Production", d: "High-quality commercials.", link: "/services" },
+    { t: "AI Production", d: "AI avatars and automated video.", link: "/services" }
+  ];
+
   return (
     <main className="min-h-screen bg-[#FCFBFA] text-[#111111] flex flex-col items-center justify-start overflow-hidden pt-20">
       
@@ -145,13 +154,9 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px]">
-            {[
-              { t: "Reels & Short Films", d: "Scroll-stopping content for social." },
-              { t: "Podcasts", d: "Thought leadership conversations." },
-              { t: "Commercial Production", d: "High-quality commercials." },
-              { t: "AI Production", d: "AI avatars and automated video." }
-            ].map((item, i) => (
-              <div key={i} className="group relative aspect-[4/3] rounded-[20px] overflow-hidden bg-[#1A1A1A] cursor-pointer">
+            {/* استخدام الـ Array الجديد اللي إنت هتديره */}
+            {studioProjects.map((item, i) => (
+              <Link key={i} href={item.link} className="group relative aspect-[4/3] rounded-[20px] overflow-hidden bg-[#1A1A1A] cursor-pointer block">
                 {/* Simulated Image Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2a2a2a] to-[#111111] group-hover:scale-[1.04] transition-transform duration-700 ease-out"></div>
                 {/* Overlay */}
@@ -166,7 +171,7 @@ export default function Home() {
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
