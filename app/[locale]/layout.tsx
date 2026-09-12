@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import "../globals.css"; // لاحظ تعديل المسار
-import Navbar from "../../components/Navbar"; // لاحظ تعديل المسار
-import Footer from "../../components/Footer";
-import ScrollToTop from "../../components/ScrollToTop";
+import "../globals.css"; // لو لسه فيها خط أحمر خليها "../../globals.css" حسب مكانها في مشروعك
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Start Online Agency | Holding Company",
