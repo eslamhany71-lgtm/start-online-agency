@@ -47,7 +47,7 @@ export default function Navbar({ locale }: { locale: string }) {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               // عشان يحدد اللينك النشط صح حتى بعد إضافة اللغة
               const isActive = pathname === link.path || pathname === `${link.path}/`;
