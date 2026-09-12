@@ -1,5 +1,61 @@
 {
-  "nav": {
-    "schedule": "Schedule Consultation"
+  "home": {
+    "hero": {
+      "badge": "Technology • Marketing • Growth",
+      "title1": "We Build, Market & Scale ",
+      "titleHighlight": "Digital Businesses.",
+      "desc": "Technology, marketing, content, websites, ecommerce, custom systems, and AI. Everything modern businesses need to grow, compete, and lead in a digital world.",
+      "btnCompanies": "Explore Our Companies",
+      "btnConsultation": "Schedule Consultation",
+      "floating": {
+        "tech": "Technology",
+        "marketing": "Marketing",
+        "content": "Content",
+        "growth": "Growth"
+      }
+    },
+    "whatWeDo": {
+      "badge": "What We Do",
+      "title": "End-to-End Digital Solutions <br className=\"hidden md:block\" /> for Every Stage of Growth.",
+      "learnMore": "Learn More",
+      "services": [
+        { "t": "Digital Marketing", "d": "Performance marketing, SEO, social, and growth strategies that deliver measurable results.", "i": "M13 10V3L4 14h7v7l9-11h-7z" },
+        { "t": "Content Production", "d": "High-impact content, video, reels, podcasts, and brand storytelling that connects.", "i": "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" },
+        { "t": "Websites", "d": "Modern, fast, and secure websites built for performance and great user experience.", "i": "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+        { "t": "Ecommerce", "d": "Scalable online stores with seamless UX and conversion-focused experiences.", "i": "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" },
+        { "t": "Custom Systems", "d": "Tailored software, portals, and automation systems that streamline operations.", "i": "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" },
+        { "t": "AI Video", "d": "AI-powered video production, avatars, and automation for modern storytelling.", "i": "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" }
+      ]
+    },
+    "products": {
+      "badge": "Our Products & Ventures",
+      "title": "Platforms. Systems. Impact.",
+      "items": [
+        { "t": "Niva Dent", "d": "Advanced ERP system and complete management solution for dental clinics.", "s": "Active", "sc": "text-green-600 bg-green-50" },
+        { "t": "Start Online Platform", "d": "A scalable e-commerce infrastructure designed for massive digital growth.", "s": "Active", "sc": "text-green-600 bg-green-50" },
+        { "t": "Engineer Pro", "d": "High-end corporate development and management solutions platform.", "s": "In Development", "sc": "text-amber-600 bg-amber-50" },
+        { "t": "Capital Mind AI", "d": "AI-driven insights for smarter business decisions and operations.", "s": "Beta", "sc": "text-[#E01E2E] bg-red-50" }
+      ]
+    },
+    "studio": {
+      "badge": "SOA Studio",
+      "title": "Stories That Build Brands.",
+      "items": [
+        { "t": "Reels & Short Films", "d": "Scroll-stopping content for social.", "link": "/services" },
+        { "t": "Podcasts", "d": "Thought leadership conversations.", "link": "/services" },
+        { "t": "Commercial Production", "d": "High-quality commercials.", "link": "/services" },
+        { "t": "AI Production", "d": "AI avatars and automated video.", "link": "/services" }
+      ]
+    },
+    "whyUs": {
+      "badge": "Why Start Online",
+      "title": "Your Growth. Our Mission.",
+      "items": ["End-to-End Solutions", "Creative Production", "Technology + Marketing", "Custom Systems", "Growth Focused"]
+    },
+    "cta": {
+      "title": "Ready to Build, Market & Scale Your Business?",
+      "desc": "Let's create something extraordinary together.",
+      "btn": "Schedule Consultation"
+    }
   }
 }
