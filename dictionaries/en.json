@@ -57,9 +57,8 @@
       "desc": "Let's create something extraordinary together.",
       "btn": "Schedule Consultation"
     }
-  }
-}
-"nav": {
+  },
+  "nav": {
     "home": "Home",
     "about": "About Us",
     "companies": "Our Companies",
@@ -109,3 +108,4 @@
       }
     }
   }
+}
