@@ -30,6 +30,7 @@ export default function RootLayout({
 
         {/* الفوتر دايماً تحت */}
         <Footer />
+        // Test Git
 
         {/* زرار الطلوع لفوق اللي هيظهر في كل الصفحات */}
         <ScrollToTop />
