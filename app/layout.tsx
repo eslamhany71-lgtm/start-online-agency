@@ -6,6 +6,10 @@ import Footer from "./components/Footer"; // سحبنا الفوتر هنا
 export const metadata: Metadata = {
   title: "Start Online Agency | Holding Company",
   description: "Building Businesses, Software & Digital Growth",
+  icons: {
+    // السطر ده هو اللي بيضيف اللوجو كأيقونة للموقع فوق في المتصفح
+    icon: "/images/528071b5-c4d1-486b-8357-2a74c897870d-removebg-preview.png",
+  },
 };
 
 export default function RootLayout({
