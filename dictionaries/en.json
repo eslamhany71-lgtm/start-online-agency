@@ -59,3 +59,53 @@
     }
   }
 }
+"nav": {
+    "home": "Home",
+    "about": "About Us",
+    "companies": "Our Companies",
+    "services": "Services",
+    "careers": "Careers",
+    "contact": "Contact",
+    "schedule": "Schedule Consultation"
+  },
+  "footer": {
+    "ctaTitle": "Ready to Build, Market <br /> & Scale Your Business?",
+    "ctaDesc": "Let's create something extraordinary together.<br/>Schedule a free consultation and take the first step toward digital growth.",
+    "schedule": "📅 Schedule Consultation →",
+    "desc": "We build, market, and scale digital businesses through innovative marketing and technology.",
+    "navTitle": "Navigation",
+    "servicesTitle": "Our Services",
+    "servicesList": ["Digital Marketing", "Content Production", "Websites", "Ecommerce", "Custom Systems", "AI / Automation"],
+    "contactTitle": "Contact Us",
+    "contactInfo": {
+      "location": "Cairo, Egypt",
+      "email": "hello@startonline.agency",
+      "phone": "+20 122 140 5309",
+      "hours": "Mon - Fri: 9:00 AM - 6:00 PM"
+    },
+    "rights": "© 2026 Start Online Agency. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "modals": {
+      "privacy": {
+        "title": "Privacy Policy",
+        "p1": "At Start Online Agency, we are committed to protecting your privacy. This policy outlines how we collect, use, and safeguard your personal information.",
+        "h1": "1. Information We Collect",
+        "d1": "We may collect personal data such as your name, email address, phone number, and project details when you fill out our contact or application forms.",
+        "h2": "2. How We Use Your Information",
+        "d2": "Your information is used strictly to communicate with you regarding your inquiries, projects, or job applications. We do not sell or share your data with third parties without your consent.",
+        "h3": "3. Data Security",
+        "d3": "We implement standard security measures to protect your data against unauthorized access or disclosure."
+      },
+      "terms": {
+        "title": "Terms of Service",
+        "p1": "Welcome to Start Online Agency. By engaging with our services, you agree to the following terms and conditions:",
+        "h1": "1. Services Provided",
+        "d1": "Start Online Agency provides digital marketing, software development, content production, and AI integration services as detailed in our formal proposals.",
+        "h2": "2. Payments & Billing",
+        "d2": "Payments for services are subject to the terms agreed upon in the individual project contracts. A deposit is typically required before work commences.",
+        "h3": "3. Intellectual Property",
+        "d3": "Upon full payment, the intellectual property rights of the custom-developed projects (websites, designs, systems) are transferred to the client, unless stated otherwise in the contract."
+      }
+    }
+  }

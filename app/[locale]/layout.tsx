@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import "../globals.css"; // لو لسه فيها خط أحمر خليها "../../globals.css" حسب مكانها في مشروعك
+import "../globals.css"; 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import { getDictionary } from "../../dictionaries/getDictionary";
 
 export const metadata: Metadata = {
   title: "Start Online Agency | Holding Company",
@@ -12,32 +13,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { locale }, // هنا بنسحب اللغة من الرابط
+  params: { locale }, 
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: 'en' | 'ar' };
 }>) {
-  // تحديد اتجاه الصفحة بناءً على اللغة
   const dir = locale === "ar" ? "rtl" : "ltr";
+  const dict = await getDictionary(locale);
 
   return (
     <html lang={locale} dir={dir}>
       <body className="bg-white text-foreground antialiased selection:bg-primary/20 selection:text-primary flex flex-col min-h-screen">
         
-        {/* بنمرر اللغة للناف بار عشان يديها لزرار الترجمة */}
-        <Navbar locale={locale} />
+        {/* مررنا الترجمة هنا */}
+        <Navbar locale={locale} dict={dict.nav} />
         
-        {/* المحتوى الرئيسي للموقع */}
         <div className="pt-20 flex-grow">
           {children}
         </div>
 
-        {/* الفوتر دايماً تحت */}
-        <Footer />
-
-        {/* زرار الطلوع لفوق */}
+        {/* ومررناها هنا */}
+        <Footer locale={locale} dict={dict.footer} />
+        
         <ScrollToTop />
       </body>
     </html>

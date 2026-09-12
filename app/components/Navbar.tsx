@@ -5,23 +5,21 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function Navbar({ locale }: { locale: string }) {
+export default function Navbar({ locale, dict }: { locale: string, dict: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  // دي عشان تقفل القائمة بتاعت الموبايل تلقائي أول ما تدوس على أي لينك
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
-  // تعديل المسارات عشان تقرأ اللغة الحالية وماتكسرش الروابط
   const navLinks = [
-    { name: "Home", path: `/${locale}` },
-    { name: "About Us", path: `/${locale}/about` },
-    { name: "Our Companies", path: `/${locale}/companies` },
-    { name: "Services", path: `/${locale}/services` },
-    { name: "Careers", path: `/${locale}/careers` },
-    { name: "Contact", path: `/${locale}/contact` },
+    { name: dict.home, path: `/${locale}` },
+    { name: dict.about, path: `/${locale}/about` },
+    { name: dict.companies, path: `/${locale}/companies` },
+    { name: dict.services, path: `/${locale}/services` },
+    { name: dict.careers, path: `/${locale}/careers` },
+    { name: dict.contact, path: `/${locale}/contact` },
   ];
 
   return (
@@ -29,7 +27,6 @@ export default function Navbar({ locale }: { locale: string }) {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* Logo Section */}
           <Link href={`/${locale}`} className="flex items-center gap-2 relative z-[101]">
             <div className="relative w-12 h-14 md:w-14 md:h-16">
               <Image
@@ -46,10 +43,8 @@ export default function Navbar({ locale }: { locale: string }) {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              // عشان يحدد اللينك النشط صح حتى بعد إضافة اللغة
               const isActive = pathname === link.path || pathname === `${link.path}/`;
               return (
                 <div key={link.name} className="relative flex flex-col items-center group">
@@ -61,7 +56,6 @@ export default function Navbar({ locale }: { locale: string }) {
                   >
                     {link.name}
                   </Link>
-                  {/* خط أحمر تحت اللينك النشط */}
                   {isActive && (
                     <div className="absolute -bottom-[28px] w-full h-[2px] bg-[#E01E2E] rounded-t-full"></div>
                   )}
@@ -70,18 +64,16 @@ export default function Navbar({ locale }: { locale: string }) {
             })}
           </div>
 
-          {/* CTA Button (Desktop) & Language Switcher */}
           <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher currentLocale={locale} />
             <Link 
               href={`/${locale}/contact`} 
               className="bg-[#E01E2E] text-white px-6 h-[44px] rounded-[10px] font-bold text-[13px] hover:bg-red-700 hover:-translate-y-[1px] transition-all flex items-center gap-2 shadow-sm"
             >
-              Schedule Consultation
+              {dict.schedule}
             </Link>
           </div>
 
-          {/* Mobile Menu Button & Language Switcher */}
           <div className="md:hidden flex items-center gap-4 relative z-[101]">
             <LanguageSwitcher currentLocale={locale} />
             <button 
@@ -101,7 +93,6 @@ export default function Navbar({ locale }: { locale: string }) {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       <div 
         className={`md:hidden absolute top-20 left-0 w-full bg-white border-b border-[rgba(17,17,17,0.08)] shadow-2xl transition-all duration-300 ease-in-out origin-top ${
           isOpen ? 'opacity-100 visible scale-y-100' : 'opacity-0 invisible scale-y-95 pointer-events-none'
@@ -123,13 +114,12 @@ export default function Navbar({ locale }: { locale: string }) {
             );
           })}
           
-          {/* زرار التواصل جوه الموبايل */}
           <div className="pt-6 mt-2 border-t border-[rgba(17,17,17,0.04)]">
             <Link 
               href={`/${locale}/contact`} 
               className="bg-[#E01E2E] text-white w-full h-[52px] rounded-[12px] font-bold text-[15px] flex items-center justify-center shadow-lg shadow-red-500/20 active:scale-95 transition-transform"
             >
-              Schedule Consultation
+              {dict.schedule}
             </Link>
           </div>
         </div>
