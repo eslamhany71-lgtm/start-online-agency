@@ -155,5 +155,67 @@
       "desc": "Take the first step toward building your digital future.",
       "btn": "Schedule Consultation"
     }
+  },
+  "about": {
+    "hero": {
+      "badge": "Our Story",
+      "title1": "Behind ",
+      "titleHighlight": "Start Online",
+      "desc": "We are more than an agency. We build technology, create experiences, and engineer digital growth for ambitious businesses.",
+      "stats": [
+        { "n": "Excellence", "t": "Proven Track Record" },
+        { "n": "Enterprise", "t": "Trusted Partners" },
+        { "n": "Experts", "t": "Top Strategists" }
+      ],
+      "floating": {
+        "tech": "Technology",
+        "marketing": "Marketing",
+        "content": "Content",
+        "growth": "Growth"
+      }
+    },
+    "vision": {
+      "badge": "Our Story & Vision",
+      "title": "A Purpose-Built Journey <br className=\"hidden md:block\" /> for Digital Impact",
+      "p1": "START ONLINE was built with a singular mission: to bridge the gap between complex technology and tangible business growth.",
+      "p2": "We develop high-performance websites, scalable e-commerce platforms, custom systems, and data-driven marketing campaigns. We don't just offer isolated services; we build complete, interconnected digital ecosystems.",
+      "p3": "Our goal is to architect scalable infrastructure that empowers ambitious businesses to thrive in the modern economy.",
+      "btn": "Explore Our Companies",
+      "imgText1": "Engineering ",
+      "imgText2": "Growth"
+    },
+    "principles": {
+      "badge": "How We Think",
+      "title": "Our Principles. Your Advantage.",
+      "items": [
+        { "t": "Innovation First", "d": "We leverage modern stacks and emerging technologies to keep your business ahead.", "i": "M13 10V3L4 14h7v7l9-11h-7z" },
+        { "t": "Uncompromising Quality", "d": "From architecture to deployment, we maintain strict quality and security standards.", "i": "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+        { "t": "Strategic Partnership", "d": "We build businesses with partners, focusing on long-term digital growth.", "i": "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+        { "t": "Data-Driven Growth", "d": "We use data and experimentation to drive measurable outcomes across every stage.", "i": "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" },
+        { "t": "People & Culture", "d": "Great people create great products. We invest in our team and continuous learning.", "i": "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" }
+      ]
+    },
+    "holistic": {
+      "badge": "Our Holistic Approach",
+      "title": "Technology. Marketing. Creative. <span className=\"text-[#E01E2E]\">Growth.</span>",
+      "nodes": {
+        "tech": "Technology",
+        "creative": "Creative",
+        "growth": "Growth",
+        "marketing": "Marketing"
+      },
+      "desc": "We combine deep technical expertise with creative thinking and growth strategies to build digital ecosystems that attract, engage, and scale.",
+      "list": [
+        { "title": "Technology", "desc": "Scalable architecture, secure systems, digital platforms." },
+        { "title": "Marketing", "desc": "Performance marketing, strategy, content distribution." },
+        { "title": "Creative Production", "desc": "Video, visual storytelling, content and brand experiences." },
+        { "title": "Growth", "desc": "Analytics, automation, experimentation and optimization." }
+      ]
+    },
+    "cta": {
+      "title": "Let's Build Something Extraordinary Together.",
+      "desc": "Take the first step toward building your digital future.",
+      "btn": "Schedule Consultation"
+    }
   }
 }
