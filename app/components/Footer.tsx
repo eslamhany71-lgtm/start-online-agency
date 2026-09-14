@@ -47,14 +47,16 @@ export default function Footer({ locale, dict }: { locale: string, dict: any }) 
               <p className="text-gray-400 text-sm font-medium mb-6 max-w-xs leading-relaxed">
                 {dict.desc}
               </p>
+              
+              {/* أيقونات السوشيال ميديا السليمة (بدون تكرار) */}
               <div className="flex gap-4">
                 {[
                   { icon: 'f', url: 'https://www.facebook.com/share/1JXneKBBPZ/?mibextid=wwXIfr' },
                   { icon: 'in', url: 'https://www.linkedin.com/company/start-online-agency/' },
                   { icon: 'ig', url: '#' },
                   { icon: 'x', url: '#' }
-                ].map((social) => (
-                  <a key={social.icon} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:border-[#E01E2E] hover:text-[#E01E2E] transition-all">
+                ].map((social, index) => (
+                  <a key={index} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:border-[#E01E2E] hover:text-[#E01E2E] transition-all">
                     <span className="text-xs font-bold uppercase">{social.icon}</span>
                   </a>
                 ))}
