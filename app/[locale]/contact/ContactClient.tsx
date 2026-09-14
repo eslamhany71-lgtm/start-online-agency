@@ -69,13 +69,13 @@ export default function ContactClient({ dict }: { dict: any }) {
               <h3 className="text-[28px] font-bold mb-8">{dict.info.title}</h3>
               
               <div className="flex flex-col gap-8 flex-1">
-                <a href="https://wa.me/201006390950" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4 hover:-translate-y-1 transition-transform">
+                <a href="https://wa.me/201096323490" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4 hover:-translate-y-1 transition-transform">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#E01E2E] group-hover:text-white transition-colors">
                     <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                   </div>
                   <div>
                     <p className="text-[12px] font-bold text-gray-400 uppercase tracking-wider mb-1">{dict.info.whatsapp}</p>
-                    <p className="text-[16px] font-medium" dir="ltr">+20 100 639 0950</p>
+                    <p className="text-[16px] font-medium" dir="ltr">+20 109 632 3490</p>
                   </div>
                 </a>
 
@@ -100,17 +100,22 @@ export default function ContactClient({ dict }: { dict: any }) {
                 </div>
               </div>
 
-              <div className="flex gap-4 mt-12 border-t border-white/10 pt-8">
-                {['ig', 'fb', 'in', 'yt'].map((social) => (
-                  <Link key={social} href="#" className="w-12 h-12 rounded-full bg-[#1A1C1E] flex items-center justify-center hover:border hover:border-[#E01E2E] hover:text-[#E01E2E] transition-all duration-300">
-                    <span className="text-[12px] font-bold uppercase">{social}</span>
-                  </Link>
+             <div className="flex gap-4 mt-12 border-t border-white/10 pt-8">
+                {[
+                  { icon: 'f', url: 'https://www.facebook.com/share/1JXneKBBPZ/?mibextid=wwXIfr' },
+                  { icon: 'in', url: 'https://www.linkedin.com/company/start-online-agency/' },
+                  { icon: 'ig', url: '#' },
+                  { icon: 'yt', url: '#' }
+                ].map((social) => (
+                  <a key={social.icon} href={social.url} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-[#1A1C1E] flex items-center justify-center hover:border hover:border-[#E01E2E] hover:text-[#E01E2E] transition-all duration-300">
+                    <span className="text-[12px] font-bold uppercase">{social.icon}</span>
+                  </a>
                 ))}
               </div>
             </div>
 
             <div className="w-full lg:w-[60%] bg-white border border-[rgba(17,17,17,0.08)] rounded-[24px] p-8 md:p-[44px] shadow-sm">
-              <a href="https://wa.me/201006390950" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#F7F7F6] hover:bg-[#25D366]/10 text-[#111111] hover:text-[#25D366] h-[52px] rounded-[12px] font-bold text-[14px] transition-all duration-300 mb-8 border border-[rgba(17,17,17,0.04)]">
+              <a href="https://wa.me/201096323490" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#F7F7F6] hover:bg-[#25D366]/10 text-[#111111] hover:text-[#25D366] h-[52px] rounded-[12px] font-bold text-[14px] transition-all duration-300 mb-8 border border-[rgba(17,17,17,0.04)]">
                 <svg className="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.124.551 4.195 1.6 6.015L.302 24l6.104-1.6c1.765.955 3.754 1.458 5.625 1.458 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm0 21.844c-1.785 0-3.535-.479-5.07-1.388l-.364-.216-3.774.991.999-3.682-.237-.377A9.972 9.972 0 012.046 12.03c0-5.508 4.484-9.992 9.985-9.992 5.511 0 9.995 4.484 9.995 9.992s-4.484 9.992-9.995 9.992zm5.495-7.502c-.302-.151-1.785-.881-2.062-.981-.277-.101-.479-.151-.681.151-.202.302-.781.981-.958 1.183-.176.202-.353.227-.655.076-.302-.151-1.275-.47-2.428-1.503-.898-.805-1.504-1.799-1.681-2.101-.176-.302-.019-.465.132-.616.136-.136.302-.353.453-.529.151-.176.202-.302.302-.504.101-.202.051-.378-.025-.529-.076-.151-.681-1.642-.933-2.247-.245-.589-.494-.509-.681-.518-.176-.008-.378-.01-.58-.01-.202 0-.529.076-.806.378-.277.302-1.058 1.033-1.058 2.52 0 1.487 1.083 2.923 1.234 3.125.151.202 2.132 3.255 5.166 4.56.721.31 1.284.496 1.724.634.724.23 1.383.197 1.902.119.584-.087 1.785-.73 2.037-1.436.252-.706.252-1.311.176-1.437-.075-.126-.277-.202-.579-.353z"/></svg>
                 {dict.form.whatsappCta}
               </a>
