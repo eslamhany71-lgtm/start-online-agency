@@ -1,17 +1,8 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { match as matchLocale } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
 
 const locales = ["en", "ar"];
-const defaultLocale = "en"; // الإنجليزي هو الأساس
-
-function getLocale(request: NextRequest): string {
-  const negotiatorHeaders: Record<string, string> = {};
-  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
-  const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
-  return matchLocale(languages, locales, defaultLocale);
-}
+const defaultLocale = "en"; // الإنجليزي هو الأساس دايماً
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -21,10 +12,11 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
+  // لو الرابط فيه لغة أصلاً (en أو ar)، سيبه يكمل عادي
   if (pathnameHasLocale) return;
 
-  const locale = getLocale(request);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
+  // لو الرابط مفيهوش لغة، وجهه دايماً للإنجليزي
+  request.nextUrl.pathname = `/${defaultLocale}${pathname}`;
   return NextResponse.redirect(request.nextUrl);
 }
 
